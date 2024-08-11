@@ -6,3 +6,23 @@
 
 /* 400-500-700 */
 /* 16px */
+
+@layer base {
+    body {
+      @apply w-full h-full bg-[url('../src/assets/images/image-hero-mobile.jpg')] md:bg-[url('../src/assets/images/image-hero-desktop.jpg')] bg-no-repeat bg-cover font-commissioner bg-gray-50;
+    }
+  }
+
+@layer components {
+  .card {
+    @apply relative flex flex-col items-center justify-center px-6 py-8 mx-6 text-base text-center bg-white rounded-md border
+  }
+
+  .small-card {
+    @apply flex flex-col items-start border border-gray-300 rounded-md p-5 gap-6  
+  }
+
+  .line {
+    @apply w-full px-0 my-5 border-t border-gray-300
+  }
+}
