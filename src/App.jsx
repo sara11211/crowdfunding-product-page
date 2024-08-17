@@ -1,3 +1,4 @@
+import BackThisProject from "./components/BackThisProject";
 import Menu from "./components/Menu";
 import Navbar from "./components/Navbar";
 import ThanksForSupport from "./components/ThanksForSupport";
@@ -15,6 +16,7 @@ const App = () => {
         <About />
       </div>
       {/* <ThanksForSupport /> */}
+      {/* <BackThisProject /> */}
     </main>
   );
 };

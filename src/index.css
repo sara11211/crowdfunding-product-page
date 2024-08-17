@@ -19,10 +19,14 @@
   }
 
   .small-card {
-    @apply flex flex-col items-start border border-gray-300 rounded-md p-5 gap-6  
+    @apply flex flex-col items-start border border-gray-200 rounded-md p-5 gap-6 bg-white
   }
 
   .line {
     @apply w-full px-0 my-5 border-t border-gray-300
+  }
+
+  .base {
+    @apply text-dark-gray text-sm md:text-base leading-6
   }
 }

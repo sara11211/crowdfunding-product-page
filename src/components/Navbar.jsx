@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <header className="px-6 py-8">
       <nav className="flex items-center justify-between">
-        <div className="z-20">
+        <div className="z-20 cursor-pointer">
           <img src={logo} alt="crowdfund logo" />
         </div>
 
@@ -47,7 +47,7 @@ const Navbar = () => {
         )}
       </nav>
       {isOpen && (
-        <LightBox>
+        <LightBox isClose={!isOpen} onClose={toggleMenu}>
           <Menu />
         </LightBox>
       )}

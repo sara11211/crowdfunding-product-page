@@ -3,7 +3,7 @@ import ProgressBar from "../ProgressBar"
 const Stats = () => {
   return (
     <div className="gap-8 card">
-        <ul className="text-sm text-dark-gray">
+        <ul className="base">
             <li>
                 <span className="block mb-2 text-3xl font-bold text-black">$89,914</span>
                 of $100,000 backed

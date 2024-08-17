@@ -5,14 +5,14 @@ const About = () => {
   return (
     <div className="flex flex-col items-start gap-6 text-left card">
       <h2 className="text-lg font-bold">About this project</h2>
-      <p className="text-sm leading-6 text-dark-gray">
+      <p className="base">
         The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform
         that elevates your screen to a more comfortable viewing height. Placing
         your monitor at eye level has the potential to improve your posture and
         make you more comfortable while at work, helping you stay focused on the
         task at hand.
       </p>
-      <p className="text-sm leading-6 text-dark-gray">
+      <p className="base">
         Featuring artisan craftsmanship, the simplicity of design creates extra
         desk space below your computer to allow notepads, pens, and USB sticks
         to be stored under the stand.
@@ -27,7 +27,7 @@ const About = () => {
               <h3 className="font-bold">{item.name}</h3>
               <p className="font-medium text-light-cyan">{`Pledge $${item.price} or more`}</p>
             </div>
-            <p className="text-sm leading-6 text-dark-gray">
+            <p className="base">
               {item.description}
             </p>
             <p className="flex items-center gap-3 text-dark-gray">
