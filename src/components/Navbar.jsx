@@ -18,13 +18,13 @@ const Navbar = () => {
         </div>
 
         <ul className="flex items-center gap-6 text-base text-white max-md:hidden">
-          <li>
+          <li className="hover:text-black hover:font-medium">
             <a href="#">About</a>
           </li>
-          <li>
+          <li className="hover:text-black hover:font-medium">
             <a href="#">Discover</a>
           </li>
-          <li>
+          <li className="hover:text-black hover:font-medium">
             <a href="#">Get Started</a>
           </li>
         </ul>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { bookmark, mastercraftLogo } from "../../assets/images";
+import { mastercraftLogo } from "../../assets/images";
 import Button from "../Button";
 import BackThisProject from "../BackThisProject";
 import LightBox from "../utilities/LightBox";
@@ -43,7 +43,7 @@ const Bookmark = () => {
           <Button text="Back this project" onClick={onClick} />
           <button className="cursor-pointer" onClick={() => toggleColor()}>
             <svg width="56" height="56" xmlns="http://www.w3.org/2000/svg">
-              <g fill="none" fill-rule="evenodd">
+              <g fill="none" fillRule="evenodd">
                 <circle fill={outerColor} cx="28" cy="28" r="28" />
                 <path fill={innerColor} d="M23 19v18l5-5.058L33 37V19z" />
               </g>

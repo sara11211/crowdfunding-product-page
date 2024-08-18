@@ -4,7 +4,7 @@ const Button = ({
   py = "py-4",
   size = "text-base",
   bg = "bg-light-cyan hover:bg-dark-cyan",
-  onClick = ''
+  onClick
 }) => {
   return (
     <button

@@ -1,4 +1,5 @@
 const LightBox = ({ children, z = "z-10", isClose, onClose }) => {
+  
   const handleBackgroundClick = (e) => {
     e.stopPropagation();
     if (onClose) {
