@@ -19,7 +19,7 @@ const Bookmark = () => {
   };
 
   const onClick = () => {
-    setShowPledgeChoice(true);
+    setShowPledgeChoice((prev) => !prev);
   };
 
   const handleClose = () => {

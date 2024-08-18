@@ -47,7 +47,7 @@ const Navbar = () => {
         )}
       </nav>
       {isOpen && (
-        <LightBox isClose={!isOpen} onClose={toggleMenu}>
+        <LightBox onClose={toggleMenu}>
           <Menu />
         </LightBox>
       )}

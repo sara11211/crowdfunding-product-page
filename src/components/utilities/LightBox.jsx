@@ -1,4 +1,4 @@
-const LightBox = ({ children, z = "z-10", isClose, onClose }) => {
+const LightBox = ({ children, z = "z-10", onClose }) => {
   
   const handleBackgroundClick = (e) => {
     e.stopPropagation();
@@ -13,7 +13,7 @@ const LightBox = ({ children, z = "z-10", isClose, onClose }) => {
 
   return (
     <div
-      className={`fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center ${z} ${isClose && "hidden"}`}
+      className={`fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center ${z}`}
       style={{ overflowY: "auto" }}
       onClick={handleBackgroundClick}
     >

@@ -63,9 +63,7 @@ const About = () => {
       </div>
 
       {showBackThisProject && (
-        <LightBox isClose={!showBackThisProject} onClose={onSelectReward}>
           <BackThisProject onClose={onSelectReward}/>
-        </LightBox>
       )}
     </>
   );
