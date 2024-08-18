@@ -1,10 +1,19 @@
 import Button from "./Button";
 import Lightbox from "../components/utilities/LightBox";
 import { checkIcon } from "../assets/images";
+import { useState } from "react";
 
 const ThanksForSupport = () => {
+
+  const [isOpen, setIsOpen] = useState(true);
+
+  const onGotIt = () => {
+    setIsOpen(false)
+  }
+  
   return (
-    <Lightbox z="z-30">
+    <>
+    {isOpen && <Lightbox z="z-30" onClose={onGotIt}>
       <div className="z-20 flex flex-col items-center justify-center gap-6 px-4 py-10 mx-6 text-center bg-white rounded-md max-w-[450px]">
         <img src={checkIcon} alt="check icon" />
         <h2 className="text-lg font-bold text-black">
@@ -15,9 +24,10 @@ const ThanksForSupport = () => {
           Monitor Riser worldwise. You will get an email once our campaign is
           completed.
         </p>
-        <Button text="Got it!" px="px-8" py="py-3" />
+        <Button text="Got it!" px="px-8" py="py-3" onClick={onGotIt} />
       </div>
-    </Lightbox>
+    </Lightbox>}
+    </>
   );
 };
 

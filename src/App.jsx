@@ -16,7 +16,7 @@ const App = () => {
         <About />
       </div>
       {/* <ThanksForSupport /> */}
-      {/* <BackThisProject /> */}
+      <BackThisProject />
     </main>
   );
 };

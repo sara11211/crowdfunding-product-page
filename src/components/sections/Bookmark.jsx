@@ -2,7 +2,6 @@ import { useState } from "react";
 import { mastercraftLogo } from "../../assets/images";
 import Button from "../Button";
 import BackThisProject from "../BackThisProject";
-import LightBox from "../utilities/LightBox";
 
 const Bookmark = () => {
   const [outerColor, setOuterColor] = useState("#2F2F2F");
@@ -25,7 +24,7 @@ const Bookmark = () => {
 
   const handleClose = () => {
     setShowPledgeChoice(false);
-  }
+  };
 
   return (
     <>
@@ -51,11 +50,7 @@ const Bookmark = () => {
           </button>
         </div>
       </div>
-
-      {showPledgeChoice && 
-      <LightBox z="z-30" isClose={false} onClose={handleClose}>
-        <BackThisProject onClose={handleClose} />
-      </LightBox>}
+      {showPledgeChoice && <BackThisProject onClose={handleClose} />}
     </>
   );
 };
