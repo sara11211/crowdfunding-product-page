@@ -1,7 +1,41 @@
 import { useState } from "react";
 import { logo, hamburgerIcon, closeMenuIcon } from "../assets/images";
-import Menu from "./Menu";
 import LightBox from "./utilities/LightBox";
+import { motion } from "framer-motion";
+
+const menuVariants = {
+  open: {
+    clipPath: "inset(0% 0% 0% 0% round 10px)",
+    transition: {
+      type: "spring",
+      bounce: 0,
+      duration: 0.7,
+      delayChildren: 0.3,
+      staggerChildren: 0.05
+    }
+  },
+  closed: {
+    clipPath: "inset(10% 50% 90% 50% round 10px)",
+    transition: {
+      type: "spring",
+      bounce: 0,
+      duration: 0.3
+    }
+  }
+};
+
+const itemVariants = {
+  open: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", stiffness: 300, damping: 24 }
+  },
+  closed: {
+    opacity: 0,
+    y: 20,
+    transition: { duration: 0.2 }
+  }
+};
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,7 +82,29 @@ const Navbar = () => {
       </nav>
       {isOpen && (
         <LightBox onClose={toggleMenu}>
-          <Menu />
+          <motion.div
+            className="absolute top-[15%] w-[85%] max-w-[500px] bg-white rounded-md border mx-auto"
+            variants={menuVariants}
+            initial="closed"
+            animate={isOpen ? "open" : "closed"}
+          >
+            <motion.ul
+              className="flex flex-col items-start p-6 font-medium"
+              style={{ pointerEvents: isOpen ? "auto" : "none" }}
+            >
+              <motion.li className="hover:text-dark-gray" variants={itemVariants}> 
+                <a href="#">About</a>
+              </motion.li>
+              <div  className="line" />
+              <motion.li className="hover:text-dark-gray" variants={itemVariants}>
+                <a href="#">Discover</a>
+              </motion.li>
+              <div className="line" />
+              <motion.li className="hover:text-dark-gray" variants={itemVariants}>
+                <a href="#">Get Started</a>
+              </motion.li>
+            </motion.ul>
+          </motion.div>
         </LightBox>
       )}
     </header>

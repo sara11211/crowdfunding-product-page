@@ -2,6 +2,18 @@ import { useState } from "react";
 import { mastercraftLogo } from "../../assets/images";
 import Button from "../Button";
 import BackThisProject from "../BackThisProject";
+import { motion } from "framer-motion";
+
+const buttonVariants = {
+  hover: {
+    scale: 1.1,
+    transition: { type: "spring", stiffness: 300 },
+  },
+  tap: {
+    scale: 0.95,
+    transition: { duration: 0.2 },
+  },
+};
 
 const Bookmark = () => {
   const [outerColor, setOuterColor] = useState("#2F2F2F");
@@ -40,14 +52,20 @@ const Bookmark = () => {
         </p>
         <div className="flex items-center justify-between w-full my-1.5">
           <Button text="Back this project" onClick={onClick} />
-          <button className="cursor-pointer" onClick={() => toggleColor()}>
+          <motion.button
+            className="cursor-pointer"
+            onClick={() => toggleColor()}
+            variants={buttonVariants}
+            whileHover="hover"
+            whileTap="tap"
+          >
             <svg width="56" height="56" xmlns="http://www.w3.org/2000/svg">
               <g fill="none" fillRule="evenodd">
                 <circle fill={outerColor} cx="28" cy="28" r="28" />
                 <path fill={innerColor} d="M23 19v18l5-5.058L33 37V19z" />
               </g>
             </svg>
-          </button>
+          </motion.button>
         </div>
       </div>
       {showPledgeChoice && <BackThisProject onClose={handleClose} />}
