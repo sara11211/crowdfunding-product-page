@@ -7,9 +7,11 @@ import Button from "../Button";
 const About = () => {
   
   const [showBackThisProject, setShowBackThisProject] = useState(false);
+  const [clicked, setClicked] = useState(null)
 
   const onSelectReward = (id) => {
     setShowBackThisProject(!showBackThisProject);
+    setClicked(id)
   };
 
   return (
@@ -55,7 +57,7 @@ const About = () => {
                     ? "bg-dark-gray"
                     : "bg-light-cyan hover:bg-dark-cyan"
                 }
-                onClick={onSelectReward}
+                onClick={() => onSelectReward(item.name)}
               />
             </li>
           ))}
@@ -63,7 +65,7 @@ const About = () => {
       </div>
 
       {showBackThisProject && (
-          <BackThisProject onClose={onSelectReward}/>
+          <BackThisProject onClose={() => setShowBackThisProject(false)} id={clicked}/>
       )}
     </>
   );

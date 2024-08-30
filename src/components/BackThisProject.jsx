@@ -1,18 +1,23 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import data from "../data/data";
 import Button from "./Button";
 import LightBox from "./utilities/LightBox";
 import ThanksForSupport from "./ThanksForSupport";
+import { motion } from "framer-motion";
 
-const BackThisProject = ({ onClose }) => {
-  const [selectedPledge, setSelectedPledge] = useState(null);
+const BackThisProject = ({ onClose, id }) => {
+  const [selectedPledge, setSelectedPledge] = useState(id);
   const [enteredPrice, setEnteredPrice] = useState("");
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [showThanks, setShowThanks] = useState(false);
+  const pledgeRefs = useRef({});
 
   const handlePledgeSelect = (name) => {
     setSelectedPledge(name);
+    setIsError(false);
+    setErrorMessage("");
+    setEnteredPrice("");
   };
 
   const handlePledgeSubmit = (price) => {
@@ -36,11 +41,21 @@ const BackThisProject = ({ onClose }) => {
     setShowThanks(true);
   };
 
+  useEffect(() => {
+    if (selectedPledge && pledgeRefs.current[selectedPledge]) {
+      pledgeRefs.current[selectedPledge].scrollIntoView({ behavior: "smooth" });
+    }
+  }, [selectedPledge]);
+
   return (
     <>
       {!showThanks && (
         <LightBox z="z-30" onClose={onClose}>
-          <div className="small-card w-[90%] max-h-[80vh] overflow-y-auto py-8">
+          <motion.div
+            className="small-card w-[90%] max-h-[80vh] overflow-y-auto py-8"
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+          >
             <div className="flex items-center justify-between w-full">
               <h2 className="font-bold">Back this project</h2>
               <svg
@@ -58,11 +73,11 @@ const BackThisProject = ({ onClose }) => {
               </svg>
             </div>
             <p className="base">
-              Want to support us in bringing Mastercraft Bamboo Monitor Riser out in
-              the world?
+              Want to support us in bringing Mastercraft Bamboo Monitor Riser
+              out in the world?
             </p>
             <ul className="flex flex-col gap-6">
-              <li>
+              <li ref={(el) => (pledgeRefs.current["Pledge with no reward"] = el)}>
                 <div
                   className={`small-card border-2 border-gray-100 ${
                     selectedPledge === "Pledge with no reward"
@@ -92,9 +107,9 @@ const BackThisProject = ({ onClose }) => {
                     </div>
                   </div>
                   <p className="base">
-                    Choose to support us without a reward if you simply believe in
-                    our project. As a backer, you will be signed up to receive product
-                    updates via email
+                    Choose to support us without a reward if you simply believe
+                    in our project. As a backer, you will be signed up to
+                    receive product updates via email
                   </p>
                   {selectedPledge === "Pledge with no reward" && (
                     <div className="flex items-center justify-center w-full gap-3">
@@ -103,14 +118,14 @@ const BackThisProject = ({ onClose }) => {
                         px="px-6"
                         size="text-sm"
                         py="py-3"
-                        onClick={() => handlePledgeSubmit(0)}
+                        onClick={() => setShowThanks(true)}
                       />
                     </div>
                   )}
                 </div>
               </li>
               {data.map((item) => (
-                <li key={item.name}>
+                <li key={item.name} ref={(el) => (pledgeRefs.current[item.name] = el)}>
                   <div
                     className={`small-card border-2 border-gray-100 ${
                       item.numberLeft === 0 ? "opacity-50" : ""
@@ -119,9 +134,9 @@ const BackThisProject = ({ onClose }) => {
                         ? "border-2 border-light-cyan"
                         : ""
                     }`}
-                    onClick={() => handlePledgeSelect(item.name)}
+                    
                   >
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-4" onClick={() => handlePledgeSelect(item.name)}>
                       <div className="relative flex items-center justify-center w-6 h-6">
                         <input
                           type="radio"
@@ -154,50 +169,49 @@ const BackThisProject = ({ onClose }) => {
                       left
                     </p>
 
-                    {selectedPledge === item.name &&
-                      item.numberLeft !== 0 && (
-                        <>
-                          <div className="my-1 line"></div>
-                          <div className="flex flex-col items-center justify-center w-full gap-4">
-                            <p className="base">Enter your pledge</p>
-                            <div className="flex items-center justify-center w-full gap-3">
-                              <div className="relative">
-                                <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">
-                                  $
-                                </span>
-                                <input
-                                  type="text"
-                                  className={`w-20 py-2 pr-4 border border-gray-200 rounded-full pl-7 focus:border-light-cyan focus:outline-none focus:ring-light-cyan ${
-                                    isError ? "border-red-500" : ""
-                                  }`}
-                                  placeholder={item.price}
-                                  value={enteredPrice}
-                                  onChange={(e) =>
-                                    setEnteredPrice(e.target.value)
-                                  }
-                                />
-                              </div>
-                              <Button
-                                text="Continue"
-                                px="px-6"
-                                size="text-sm"
-                                py="py-3"
-                                onClick={() => handlePledgeSubmit(item.price)}
+                    {selectedPledge === item.name && item.numberLeft !== 0 && (
+                      <>
+                        <div className="my-1 line"></div>
+                        <div className="flex flex-col items-center justify-center w-full gap-4">
+                          <p className="base">Enter your pledge</p>
+                          <div className="flex items-center justify-center w-full gap-3">
+                            <div className="relative">
+                              <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">
+                                $
+                              </span>
+                              <input
+                                type="text"
+                                className={`w-20 py-2 pr-4 border border-gray-200 rounded-full pl-7 focus:border-light-cyan focus:outline-none focus:ring-light-cyan ${
+                                  isError ? "border-red-500" : ""
+                                }`}
+                                placeholder={item.price}
+                                value={enteredPrice}
+                                onChange={(e) =>
+                                  setEnteredPrice(e.target.value)
+                                }
                               />
                             </div>
-                            {isError && (
-                              <span className="text-[0.8rem] font-normal text-red-500 -mt-2">
-                                {errorMessage}
-                              </span>
-                            )}
+                            <Button
+                              text="Continue"
+                              px="px-6"
+                              size="text-sm"
+                              py="py-3"
+                              onClick={() => handlePledgeSubmit(item.price)}
+                            />
                           </div>
-                        </>
-                      )}
+                          {isError && (
+                            <span className="text-[0.8rem] font-normal text-red-500 -mt-2">
+                              {errorMessage}
+                            </span>
+                          )}
+                        </div>
+                      </>
+                    )}
                   </div>
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
         </LightBox>
       )}
       {showThanks && <ThanksForSupport />}
@@ -206,4 +220,3 @@ const BackThisProject = ({ onClose }) => {
 };
 
 export default BackThisProject;
-
