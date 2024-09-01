@@ -1,4 +1,4 @@
-const ProgressBar = ({ currentValue = 50000, maxValue = 100000 }) => {
+const ProgressBar = ({ currentValue , maxValue = 100000 }) => {
   
   const progressPercentage = (currentValue / maxValue) * 100;
   

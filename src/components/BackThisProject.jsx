@@ -39,7 +39,7 @@ const BackThisProject = ({ onClose, id, onPledgeSubmit, data }) => {
     setEnteredPrice("");
     setShowThanks(true);
 
-    onPledgeSubmit(selectedPledge)
+    onPledgeSubmit(selectedPledge, numericPrice)
   };
 
   useEffect(() => {
