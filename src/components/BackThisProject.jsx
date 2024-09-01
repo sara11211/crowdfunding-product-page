@@ -1,11 +1,10 @@
 import { useState, useRef, useEffect } from "react";
-import data from "../data/data";
 import Button from "./Button";
 import LightBox from "./utilities/LightBox";
 import ThanksForSupport from "./ThanksForSupport";
 import { motion } from "framer-motion";
 
-const BackThisProject = ({ onClose, id }) => {
+const BackThisProject = ({ onClose, id, onPledgeSubmit, data }) => {
   const [selectedPledge, setSelectedPledge] = useState(id);
   const [enteredPrice, setEnteredPrice] = useState("");
   const [isError, setIsError] = useState(false);
@@ -39,6 +38,8 @@ const BackThisProject = ({ onClose, id }) => {
     setErrorMessage("");
     setEnteredPrice("");
     setShowThanks(true);
+
+    onPledgeSubmit(selectedPledge)
   };
 
   useEffect(() => {

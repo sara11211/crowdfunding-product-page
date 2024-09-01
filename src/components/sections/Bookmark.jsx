@@ -15,7 +15,7 @@ const buttonVariants = {
   },
 };
 
-const Bookmark = () => {
+const Bookmark = ({data, onPledgeSubmit}) => {
   const [outerColor, setOuterColor] = useState("#2F2F2F");
   const [innerColor, setInnerColor] = useState("#B1B1B1");
   const [showPledgeChoice, setShowPledgeChoice] = useState(false);
@@ -68,7 +68,14 @@ const Bookmark = () => {
           </motion.button>
         </div>
       </div>
-      {showPledgeChoice && <BackThisProject onClose={handleClose} />}
+      {showPledgeChoice && (
+        <BackThisProject
+          onClose={handleClose}
+          data={data}
+          onPledgeSubmit={onPledgeSubmit}
+          id={data.find(item => item.numberLeft > 0)?.name || ""}
+        />
+      )}
     </>
   );
 };

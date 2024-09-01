@@ -1,11 +1,8 @@
 import { useState } from "react";
-import data from "../../data/data";
 import BackThisProject from "../BackThisProject";
-import LightBox from "../utilities/LightBox";
 import Button from "../Button";
 
-const About = () => {
-  
+const About = ({ data, onPledgeSubmit }) => {
   const [showBackThisProject, setShowBackThisProject] = useState(false);
   const [clicked, setClicked] = useState(null)
 
@@ -65,7 +62,12 @@ const About = () => {
       </div>
 
       {showBackThisProject && (
-          <BackThisProject onClose={() => setShowBackThisProject(false)} id={clicked}/>
+          <BackThisProject
+          onClose={() => setShowBackThisProject(false)}
+          data={data}
+          onPledgeSubmit={onPledgeSubmit}
+          id={clicked}
+        />
       )}
     </>
   );
