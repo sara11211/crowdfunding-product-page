@@ -18,6 +18,8 @@ const buttonVariants = {
 const Bookmark = ({data, onPledgeSubmit}) => {
   const [outerColor, setOuterColor] = useState("#2F2F2F");
   const [innerColor, setInnerColor] = useState("#B1B1B1");
+  const [fontColor, setFontColor] = useState("hsl(0, 0%, 48%)");
+  const [buttonText, setButtonText] = useState('Bookmark')
   const [showPledgeChoice, setShowPledgeChoice] = useState(false);
 
   const toggleColor = () => {
@@ -27,6 +29,14 @@ const Bookmark = ({data, onPledgeSubmit}) => {
 
     setInnerColor((current) =>
       current === "#B1B1B1" ? "hsl(100,100%,100%)" : "#B1B1B1"
+    );
+
+    setFontColor((current) =>
+      current === "hsl(0, 0%, 48%)" ? "hsl(176, 72%, 28%)" : "hsl(0, 0%, 48%)"
+    );
+
+    setButtonText((current) =>
+      current === "Bookmark" ? "Bookmarked" : "Bookmark"
     );
   };
 
@@ -65,7 +75,12 @@ const Bookmark = ({data, onPledgeSubmit}) => {
                 <path fill={innerColor} d="M23 19v18l5-5.058L33 37V19z" />
               </g>
             </svg>
-            <div className="px-6 py-4 pl-16 font-semibold bg-gray-100 rounded-full max-lg:hidden base" >Bookmark</div>
+            <div 
+            className="px-6 py-4 pl-16 font-semibold bg-gray-100 rounded-full max-lg:hidden base" 
+            style={{
+              color: fontColor
+            }}
+            >{buttonText}</div>
           </motion.button>
         </div>
       </div>

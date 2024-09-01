@@ -27,6 +27,6 @@
   }
 
   .base {
-    @apply text-dark-gray text-sm md:text-base leading-6
+    @apply text-dark-gray text-sm md:text-base leading-6 lg:leading-8
   }
 }

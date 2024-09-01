@@ -56,6 +56,7 @@ const About = ({ data, onPledgeSubmit }) => {
                     : "bg-light-cyan hover:bg-dark-cyan"
                 }
                 onClick={() => onSelectReward(item.name)}
+                disabled={item.numberLeft === 0}
               />
               </div>
             </li>
