@@ -13,7 +13,7 @@ const About = ({ data, onPledgeSubmit }) => {
 
   return (
     <>
-      <div className="flex flex-col items-start gap-6 text-left card">
+      <div className="flex flex-col items-start gap-6 text-left card max-w-[750px] w-full">
         <h2 className="text-lg font-bold">About this project</h2>
         <p className="base">
           The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform
@@ -33,11 +33,12 @@ const About = ({ data, onPledgeSubmit }) => {
               key={item.name}
               className={`small-card ${item.numberLeft === 0 ? "opacity-50" : ""}`}
             >
-              <div>
+              <div className="w-full lg:flex lg:justify-between">
                 <h3 className="font-bold">{item.name}</h3>
                 <p className="font-medium text-light-cyan">{`Pledge $${item.price} or more`}</p>
               </div>
               <p className="base">{item.description}</p>
+              <div className="flex flex-col gap-4 lg:w-full lg:flex-row lg:justify-between">
               <p className="flex items-center gap-3 text-dark-gray">
                 <span className="text-3xl font-bold text-black">
                   {item.numberLeft}
@@ -56,6 +57,7 @@ const About = ({ data, onPledgeSubmit }) => {
                 }
                 onClick={() => onSelectReward(item.name)}
               />
+              </div>
             </li>
           ))}
         </ul>

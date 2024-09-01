@@ -15,7 +15,7 @@
 
 @layer components {
   .card {
-    @apply relative flex flex-col items-center justify-center px-6 py-8 mx-6 text-base text-center bg-white rounded-md border
+    @apply relative flex flex-col items-center justify-center px-6 py-8 text-base text-center bg-white rounded-md border lg:px-12
   }
 
   .small-card {

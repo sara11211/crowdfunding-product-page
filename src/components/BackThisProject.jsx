@@ -53,7 +53,7 @@ const BackThisProject = ({ onClose, id, onPledgeSubmit, data }) => {
       {!showThanks && (
         <LightBox z="z-30" onClose={onClose}>
           <motion.div
-            className="small-card w-[90%] max-h-[80vh] overflow-y-auto py-8"
+            className="small-card w-[90%] max-h-[80vh] overflow-y-auto py-8 max-w-[700px]"
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
           >

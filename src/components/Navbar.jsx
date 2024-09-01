@@ -45,7 +45,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="px-6 py-8">
+    <header className="px-6 py-8 md:px-16 xl:px-40 xl:py-12">
       <nav className="flex items-center justify-between">
         <div className="z-20 cursor-pointer">
           <img src={logo} alt="crowdfund logo" />

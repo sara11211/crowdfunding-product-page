@@ -40,11 +40,11 @@ const Bookmark = ({data, onPledgeSubmit}) => {
 
   return (
     <>
-      <div className="gap-5 card">
+      <div className="gap-5 card max-w-[750px] w-full">
         <div className="absolute top-0 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-full left-1/2">
           <img src={mastercraftLogo} alt="mastercraft logo" />
         </div>
-        <h1 className="px-2 mt-5 text-xl font-bold leading-6 capitalize">
+        <h1 className="px-2 mt-5 text-xl font-bold leading-6 capitalize lg:text-2xl">
           mastercraft bamboo monitor riser
         </h1>
         <p className="base">
@@ -53,18 +53,19 @@ const Bookmark = ({data, onPledgeSubmit}) => {
         <div className="flex items-center justify-between w-full my-1.5">
           <Button text="Back this project" onClick={onClick} />
           <motion.button
-            className="cursor-pointer"
+            className="cursor-pointer lg:flex lg:items-center lg:relative"
             onClick={() => toggleColor()}
             variants={buttonVariants}
             whileHover="hover"
             whileTap="tap"
           >
-            <svg width="56" height="56" xmlns="http://www.w3.org/2000/svg">
+            <svg width="56" height="56" xmlns="http://www.w3.org/2000/svg" className="lg:absolute">
               <g fill="none" fillRule="evenodd">
                 <circle fill={outerColor} cx="28" cy="28" r="28" />
                 <path fill={innerColor} d="M23 19v18l5-5.058L33 37V19z" />
               </g>
             </svg>
+            <div className="px-6 py-4 pl-16 font-semibold bg-gray-100 rounded-full max-lg:hidden base" >Bookmark</div>
           </motion.button>
         </div>
       </div>
