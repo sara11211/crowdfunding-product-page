@@ -41,7 +41,7 @@ const App = () => {
   return (
     <main>
       <Navbar />
-      <div className="absolute top-[40%] flex flex-col gap-6 items-center w-full px-6 xl:top-[50%]">
+      <div className="absolute top-[40%] flex flex-col gap-6 items-center w-full px-6">
         <Bookmark data={pledgeData} onPledgeSubmit={handlePledgeSubmit} />
         <Stats ref={statsRef} totalBacked={totalBacked} />
         <About data={pledgeData} onPledgeSubmit={handlePledgeSubmit} />
