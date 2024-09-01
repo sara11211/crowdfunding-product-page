@@ -54,7 +54,7 @@ const Bookmark = ({data, onPledgeSubmit}) => {
         <div className="absolute top-0 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-full left-1/2">
           <img src={mastercraftLogo} alt="mastercraft logo" />
         </div>
-        <h1 className="px-2 mt-5 text-xl font-bold leading-6 capitalize lg:text-2xl">
+        <h1 className="px-2 mt-5 text-xl font-bold leading-6 capitalize lg:text-3xl">
           mastercraft bamboo monitor riser
         </h1>
         <p className="base">

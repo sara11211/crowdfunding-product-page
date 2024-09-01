@@ -4,7 +4,7 @@ import ProgressBar from "../ProgressBar"
 
 const Stats = forwardRef(({ totalBacked }, ref) => {
   return (
-    <div ref={ref} className="gap-8 card max-w-[750px] w-full">
+    <div ref={ref} className="gap-8 card max-w-[750px] w-full pb-12">
       <ul className="flex flex-col lg:flex-row lg:items-center base">
         <li className="lg:flex lg:flex-col lg:items-start">
           <span className="block mb-2 text-3xl font-bold text-black">

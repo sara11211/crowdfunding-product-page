@@ -14,7 +14,7 @@ const About = ({ data, onPledgeSubmit }) => {
   return (
     <>
       <div className="flex flex-col items-start gap-6 text-left card max-w-[750px] w-full">
-        <h2 className="text-lg font-bold">About this project</h2>
+        <h2 className="text-lg font-bold lg:text-xl">About this project</h2>
         <p className="base">
           The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform
           that elevates your screen to a more comfortable viewing height.
@@ -31,10 +31,10 @@ const About = ({ data, onPledgeSubmit }) => {
           {data.map((item) => (
             <li
               key={item.name}
-              className={`small-card ${item.numberLeft === 0 ? "opacity-50" : ""}`}
+              className={`small-card p-8 ${item.numberLeft === 0 ? "opacity-50" : ""}`}
             >
-              <div className="w-full lg:flex lg:justify-between">
-                <h3 className="font-bold">{item.name}</h3>
+              <div className="w-full lg:flex lg:justify-between lg:items-center">
+                <h3 className="font-bold lg:text-lg">{item.name}</h3>
                 <p className="font-medium text-light-cyan">{`Pledge $${item.price} or more`}</p>
               </div>
               <p className="base">{item.description}</p>
