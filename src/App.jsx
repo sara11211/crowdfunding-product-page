@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import About from "./components/sections/About";
 import Bookmark from "./components/sections/Bookmark";
@@ -6,7 +6,14 @@ import Stats from "./components/sections/Stats";
 import data from "./data/data";
 
 const App = () => {
-  const [pledgeData, setPledgeData] = useState(data);
+  const [pledgeData, setPledgeData] = useState(() => {
+    const storedData = localStorage.getItem("pledgeData");
+    return storedData ? JSON.parse(storedData) : data;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("pledgeData", JSON.stringify(pledgeData));
+  }, [pledgeData]);
 
   const handlePledgeSubmit = (pledgeName) => {
     setPledgeData((prevData) =>
