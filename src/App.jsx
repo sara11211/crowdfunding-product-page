@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import Navbar from "./components/Navbar";
-import About from "./components/sections/About";
-import Bookmark from "./components/sections/Bookmark";
-import Stats from "./components/sections/Stats";
+import About from "./sections/About";
+import Bookmark from "./sections/Bookmark";
+import Stats from "./sections/Stats";
 import data from "./data/data";
 
 const App = () => {

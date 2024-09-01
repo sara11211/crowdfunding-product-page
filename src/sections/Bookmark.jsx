@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { mastercraftLogo } from "../../assets/images";
-import Button from "../Button";
-import BackThisProject from "../BackThisProject";
+import { mastercraftLogo } from "../assets/images";
+import Button from "../components/Button";
+import BackThisProject from "../components/BackThisProject";
 import { motion } from "framer-motion";
 
 const buttonVariants = {

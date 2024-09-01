@@ -1,6 +1,6 @@
 import { useState } from "react";
-import BackThisProject from "../BackThisProject";
-import Button from "../Button";
+import BackThisProject from "../components/BackThisProject";
+import Button from "../components/Button";
 
 const About = ({ data, onPledgeSubmit }) => {
   const [showBackThisProject, setShowBackThisProject] = useState(false);
@@ -13,7 +13,7 @@ const About = ({ data, onPledgeSubmit }) => {
 
   return (
     <>
-      <div className="flex flex-col items-start gap-6 text-left card max-w-[750px] w-full">
+      <div className="flex flex-col items-start gap-6 text-left card max-w-[750px] w-full lg:gap-8">
         <h2 className="text-lg font-bold lg:text-xl">About this project</h2>
         <p className="base">
           The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform

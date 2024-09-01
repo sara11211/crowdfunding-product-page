@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import { motion } from "framer-motion";
-import ProgressBar from "../ProgressBar" 
+import ProgressBar from "../components/ProgressBar" 
 
 const Stats = forwardRef(({ totalBacked }, ref) => {
   return (
