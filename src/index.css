@@ -9,7 +9,7 @@
 
 @layer base {
     body {
-      @apply w-full h-full bg-[url('../src/assets/images/image-hero-mobile.jpg')] md:bg-[url('../src/assets/images/image-hero-desktop.jpg')] bg-no-repeat bg-cover font-commissioner bg-gray-50;
+      @apply w-full h-full bg-[url('../src/assets/images/image-hero-mobile.webp')] md:bg-[url('../src/assets/images/image-hero-desktop.webp')] bg-no-repeat bg-cover font-commissioner bg-gray-50;
     }
   }
 

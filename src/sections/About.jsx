@@ -47,7 +47,7 @@ const About = ({ data, onPledgeSubmit }) => {
               </p>
               <Button
                 text="Select Reward"
-                px="px-8"
+                px="px-8 max-sm:px-6"
                 py="py-3.5"
                 size="text-sm"
                 bg={

@@ -57,7 +57,7 @@ const BackThisProject = ({ onClose, id, onPledgeSubmit, data }) => {
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
           >
-            <div className="flex items-center justify-between w-full">
+            <button className="flex items-center justify-between w-full">
               <h2 className="font-bold">Back this project</h2>
               <svg
                 width="15"
@@ -72,7 +72,7 @@ const BackThisProject = ({ onClose, id, onPledgeSubmit, data }) => {
                   fillRule="evenodd"
                 />
               </svg>
-            </div>
+            </button>
             <p className="base">
               Want to support us in bringing Mastercraft Bamboo Monitor Riser
               out in the world?

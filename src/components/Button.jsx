@@ -1,8 +1,8 @@
 const Button = ({
   text,
-  px = "px-11",
+  px = "max-md:px-6 px-11",
   py = "py-4",
-  size = "text-base",
+  size = "base",
   bg = "bg-light-cyan hover:bg-dark-cyan",
   onClick,
   disabled

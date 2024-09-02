@@ -47,9 +47,9 @@ const Navbar = () => {
   return (
     <header className="px-6 py-8 md:px-16 xl:px-40 xl:py-12">
       <nav className="flex items-center justify-between">
-        <div className="z-20 cursor-pointer">
+        <a className="z-20 cursor-pointer">
           <img src={logo} alt="crowdfund logo" />
-        </div>
+        </a>
 
         <ul className="flex items-center gap-6 text-base text-white max-md:hidden">
           <li className="hover:text-black hover:font-medium">
@@ -64,20 +64,20 @@ const Navbar = () => {
         </ul>
 
         {!isOpen && (
-          <div
+          <button
             className="cursor-pointer md:hidden"
             onClick={() => toggleMenu()}
           >
             <img src={hamburgerIcon} alt="hamburger icon" />
-          </div>
+          </button>
         )}
         {isOpen && (
-          <div
+          <button
             className="fixed z-20 cursor-pointer top-8 right-6 md:hidden"
             onClick={() => toggleMenu()}
           >
             <img src={closeMenuIcon} alt="close menu icon" />
-          </div>
+          </button>
         )}
       </nav>
       {isOpen && (
